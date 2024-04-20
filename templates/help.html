@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Help </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Inventory Analyzer - Help </h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{{ url_for('add_software') }}">Add New Software</a>
+            <a href="{{ url_for('view_inventory') }}">View Inventory</a>
+            <a href="{{ url_for('help') }}">Help</a>
+        </nav>
+    </header>
+    <div id="content">
+        <h2>Frequently Asked Questions</h2>
+        <br>
+        <p><strong>How do I add new software?</strong></p>
+        <p> - To add new software, navigate to the 'Add New Software' page and fill out the form.</p>
+        <p><strong>How can I delete a software entry?</strong></p>
+        <p> - To delete a software entry, go to the 'View Inventory' page and click 'Delete' next to the entry you want to remove.</p>
+        <p><strong>Who do I contact for more help?</strong></p>
+        <p> - Please contact lmirch@umich.edu for further assistance.</p>
+    </div>
+    <footer>
+        <p>© 2024 Inventory Analyzer</p>
+    </footer>
+</body>
+</html>

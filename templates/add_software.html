@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Add New Software </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Inventory Analyzer - Add New Software </h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{{ url_for('add_software') }}">Add New Software</a>
+            <a href="{{ url_for('view_inventory') }}">View Inventory</a>
+            <a href="{{ url_for('help') }}">Help</a>
+        </nav>
+    </header>
+    <div id="content">
+        <form method="POST">
+            <label for="name">Software Name:</label>
+            <input type="text" id="name" name="name" placeholder="Software Name" required>
+            <label for="version">Version:</label>
+            <input type="text" id="version" name="version" placeholder="Version" required>
+            <label for="license">License:</label>
+            <select id="license" name="license">
+                <option value="Freeware">Freeware</option>
+                <option value="Commercial">Commercial</option>
+            </select>
+            <label for="usage">Usage Frequency:</label>
+            <input type="number" id="usage" name="usage" placeholder="Usage Frequency" required>
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes" name="notes" placeholder="Additional Notes"></textarea>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <footer>
+        <p>© 2024 Inventory Analyzer</p>
+    </footer>
+</body>
+</html>

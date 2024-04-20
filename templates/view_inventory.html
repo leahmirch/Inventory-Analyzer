@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> View Inventory </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function exportCSV() {
+            fetch('/export')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Failed to export: ' + data.error);
+                    } else {
+                        alert('Exported successfully to "exports" folder in directory. Name: ' + data.filename);
+                    }
+                })
+                .catch(error => alert('Failed to export: ' + error));
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Inventory Analyzer - View Inventory </h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{{ url_for('add_software') }}">Add New Software</a>
+            <a href="{{ url_for('view_inventory') }}">View Inventory</a>
+            <a href="{{ url_for('help') }}">Help</a>
+        </nav>
+    </header>
+    <div id="content">
+        <form method="POST" action="{{ url_for('view_inventory') }}">
+            <input type="text" name="search" placeholder="Search software...">
+            <button type="submit">Search</button>
+        </form>
+        <br>
+        <button onclick="exportCSV()">Export to CSV</button>
+        <br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Version</th>
+                    <th>License</th>
+                    <th>Usage</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for software in inventory %}
+                <tr>
+                    <td>{{ software.name }}</td>
+                    <td>{{ software.version }}</td>
+                    <td>{{ software.license }}</td>
+                    <td>{{ software.usage }}</td>
+                    <td>{{ software.notes }}</td>
+                    <td><a href="{{ url_for('delete', id=software.id) }}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <p>© 2024 Inventory Analyzer</p>
+    </footer>
+</body>
+</html>
