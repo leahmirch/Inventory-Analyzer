@@ -2,6 +2,7 @@
 # install python3 (for mac) or python (for windows) if not already installed
 # run "make check" to ensure that a usable version of python is installed
 # run "make mac" or "make windows" depending on your device
+# paste http://127.0.0.1:5000 into a browser to see the UI
 
 
 .PHONY: check-python mac windows
