@@ -29,12 +29,14 @@ Ensure Python is installed on your system. If not, download it from:
 2. **Setup and Run the Application:**
    ```
    make mac
+   paste http://127.0.0.1:5000 into a browser
    ```
    This command sequence does the following:
    - `cleanmac`: Removes any existing virtual environments and temporary files to ensure a clean state.
    - `check-python`: Verifies the presence of Python and instructs on installation if missing.
    - `setupmac`: Creates and activates a new Python virtual environment, then installs Flask.
    - `runmac`: Launches the Flask application.
+ 
 
 ### Windows Setup and Execution
 
@@ -47,6 +49,7 @@ Ensure Python is installed on your system. If not, download it from:
 2. **Setup and Run the Application:**
    ```
    make windows
+   paste http://127.0.0.1:5000 into a browser
    ```
    The steps involved are:
    - `cleanwindows`: Cleans up any pre-existing virtual environments and temporary files.
@@ -84,6 +87,11 @@ If you choose to set up the environment manually or encounter issues with the Ma
      ```
      python backend.py
      ```
+
+4. **See the UI:**
+   ```
+   paste http://127.0.0.1:5000 into a browser
+   ```
 
 ## Application Structure and Functionality
 
